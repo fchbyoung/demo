@@ -5,7 +5,7 @@
     <title>Ứng dụng chuyển đổi tiền tệ</title>
 </head>
 <body>
-<form id="myForm" style="width: 100%">
+<div id="myForm" style="width: 100%">
     <table style="width: 100%; border: 1px solid #ddd">
         <tr>
             <th style="text-align: left">Amount</th>
@@ -13,7 +13,7 @@
             <th style="text-align: left">To Currency</th>
         </tr>
         <tr>
-            <td> <input type="text" ></td>
+            <td> <input type="text" id="amount" ></td>
             <td> <select name="" id="fromcurrency">
                 <option value="vietnam">Việt Nam</option>
                 <option value="vietnam">Mỹ</option>
@@ -28,12 +28,19 @@
                 <option value="vietnam">Hàn Quốc</option>
                 <option value="vietnam">Anh</option>
             </select></td>
-            <td><button id="convert" style="background-color: aqua">Convert</button></td>
+            <td><button id="convert" style="background-color: aqua" onclick="convert()">Convert</button></td>
         </tr>
-    </table>
-</form>
-<script>
 
-</script>
+    </table>
+    <p id="result"></p>
+</div>
+    <script>
+        function convert() {
+            let s = document.getElementById("amount").value;
+            s = parseFloat(s);
+            let result = s/23000;
+            document.getElementById("result").innerHTML = "Result : " + result + " VND";
+        }
+    </script>
 </body>
 </html>
